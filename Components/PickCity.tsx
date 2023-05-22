@@ -1,5 +1,5 @@
 'use client';
-import { Country, State } from "country-state-city"
+import { City, Country, State } from "country-state-city"
 import Select from "react-select";
 import {useState} from 'react'
 import { type } from "os";
@@ -48,7 +48,8 @@ function pickCity() {
   }
 
   const handleSelectedCity = (option: cityOption) => {
-    setSelectedCity(option)
+    setSelectedCity(option);
+    router.push(`/location/${option?.value.latitude}/${option?.value.longitude}`)
   }
 
 
@@ -80,7 +81,21 @@ function pickCity() {
       className="text-black"
       value={selectedCity}
       onChange={handleSelectedCity}
-      options={options}
+      options ={City.getCitiesOfCountry(selectedCountry.value.isoCode)?.map((state) => ({
+
+        value: {
+            latitude: state.latitude!,
+            longitude: state.longitude!,
+            countryCode: state.countryCode,
+            name: state.name,
+            stateCode: state.stateCode,
+        },
+        label: state.name,
+
+
+      })) 
+    
+    }
       />
       </div>
       )}
