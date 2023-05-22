@@ -40,9 +40,15 @@ function pickCity() {
   const [selectedCountry, setSelectedCountry] = useState<option>(null);
   const [selectedCity, setSelectedCity] = useState<cityOption>(null);
   const router = useRouter();
+
+
   const handleSelectedCountry = (option: option) => {
     setSelectedCountry(option);
     setSelectedCity(null);
+  }
+
+  const handleSelectedCity = (option: cityOption) => {
+    setSelectedCity(option)
   }
 
 
@@ -61,6 +67,24 @@ function pickCity() {
       options={options}
       />
       </div>
+
+      {selectedCountry && (
+          
+       <div className="space-y-2">
+      <div className="flex items-center space-x-2 text-white/80">
+        <GlobeIcon className="h-5 w-5 text-white"/>
+        <label htmlFor="country">City</label>
+      </div>
+
+      <Select 
+      className="text-black"
+      value={selectedCity}
+      onChange={handleSelectedCity}
+      options={options}
+      />
+      </div>
+      )}
+
     </div>
   )
 }
