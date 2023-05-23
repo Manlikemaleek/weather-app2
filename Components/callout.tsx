@@ -1,9 +1,14 @@
-import React from 'react'
+"use client";
+import { CheckCircleIcon, ExclamationIcon } from "@heroicons/react/solid";
+import { Callout } from "@tremor/react";
 
-function callout() {
-  return (
-    <div>callout</div>
-  )
+type Props = {
+  message: string;
+  warning: boolean;
+};
+
+function callout({ message, warning }: Props) {
+  return <div>callout</div>;
 }
 
-export default callout
+export default callout;
