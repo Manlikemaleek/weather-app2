@@ -23,6 +23,9 @@ async function weatherHome({ params: { city, lat, long } }: Props) {
 
     }
   })
+
+  const results: Root = data.myQuery;
+
   return (
     <div>
       welcome to WeatherMe {city} {lat} {long}
