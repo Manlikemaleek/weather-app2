@@ -1,16 +1,18 @@
-import React from 'react'
+import React from "react";
 type Props = {
-    params: {
-        city: string;
-        lat: string;
-        long: string;
-    }
-}
+  params: {
+    city: string;
+    lat: string;
+    long: string;
+  };
+};
 
-function weatherHome({params: {city, lat, long}}: Props) {
+function weatherHome({ params: { city, lat, long } }: Props) {
   return (
-    <div>welcome to WeatherMe {city} {lat} {long}</div>
-  )
+    <div>
+      welcome to WeatherMe {city} {lat} {long}
+    </div>
+  );
 }
 
-export default weatherHome
+export default weatherHome;

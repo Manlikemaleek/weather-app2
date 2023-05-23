@@ -1,12 +1,14 @@
-import {gql} from "@apollo/client"
+import { gql } from "@apollo/client";
 
-const fetchWeather = gql `
-query myQuery($current_weather: String, 
-    $daily: String = "weathercode, temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,sunrise,sunset,uv_index_clear_sky_max", 
-    $hourly: String = "tenperature_2m,relativehumidity_2m,apparent_temperature,precipitation_probability,precipitation,rain,showers,snowfall,snow_depth,windgusts_10m,uv_index,uv_index_clear_sky_max",
-     $latitude: String,
-      $longitude: String, 
-     $timezone: String) {
+const fetchWeather = gql`
+  query myQuery(
+    $current_weather: String
+    $daily: String = "weathercode, temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,sunrise,sunset,uv_index_clear_sky_max"
+    $hourly: String = "tenperature_2m,relativehumidity_2m,apparent_temperature,precipitation_probability,precipitation,rain,showers,snowfall,snow_depth,windgusts_10m,uv_index,uv_index_clear_sky_max"
+    $latitude: String
+    $longitude: String
+    $timezone: String
+  ) {
     myQuery(
       daily: $daily
       hourly: $hourly
@@ -83,4 +85,7 @@ query myQuery($current_weather: String,
       timezone_abbreviation
       utc_offset_seconds
     }
-  }`
+  }
+`;
+
+export default fetchWeather;
